@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100"
+    tools:context="com.iglesias.c.mercuriomovil.Activity.FormularioVisitaActivity">
+
+    <TextView
+        android:id="@+id/id_txt_title_visita"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:gravity="center"
+        android:text="@string/str_title_visita"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/text_size_tile_visitas"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="80"></FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="12"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <ImageButton
+            android:id="@+id/id_btn_back_visita"
+            android:layout_width="0dp"
+            android:background="@drawable/selectro_btn"
+            android:src="@drawable/ic_i"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+        <SeekBar
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="60" />
+
+        <ImageButton
+            android:id="@+id/id_btn_forward_visita"
+            android:layout_width="0dp"
+            android:background="@drawable/selectro_btn"
+            android:src="@drawable/ic_d"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+    </LinearLayout>
+</LinearLayout>

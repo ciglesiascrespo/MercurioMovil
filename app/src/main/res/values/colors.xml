@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#424242</color>
+    <color name="colorPrimaryLigth">#6d6d6d</color>
+    <color name="colorPrimaryLigthShape">#ffffff</color>
+    <color name="colorPrimaryDark">#1b1b1b</color>
+    <color name="colorAccent">#ffd600</color>
+    <color name="secondaryLightColor">#ffff52</color>
+    <color name="secondaryDarkColor">#c7a500</color>
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="primaryTextColorHint">#e4e3e3</color>
+    <color name="background_fragment">#f4f0f0</color>
+    <color name="secondaryTextColor">#000000</color>
+</resources>

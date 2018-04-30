@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Victoria</string>
+    <string name="hint_txt_usuario">Usuario</string>
+    <string name="hint_txt_clave">clave</string>
+    <string name="btn_login">Ingresar</string>
+    <string name="str_loading_login">Validando usuario...</string>
+    <string name="str_title_alert_error_login">Login</string>
+    <string name="str_msj_alert_error_login">Usuario no registrado.</string>
+    <string name="ok">Ok</string>
+    <string name="str_campo_requerido">Campo requerido.</string>
+    <string name="name_preference_user">Usuario</string>
+    <string name="name_preference_user_codigo">codigo</string>
+    <string name="name_preference_user_logueado">logueado</string>
+    <string name="str_menu_sincro">Sincronización inicial</string>
+    <string name="str_menu_salir">Salir</string>
+    <string name="str_txt_no_form">Sin formularios.</string>
+    <string name="str_msj_loading_forms">Cargando formularios...</string>
+    <string name="str_title_alert_error">Aviso</string>
+    <string name="str_msj_alert_error_formularios">Error cargando formularios.</string>
+    <string name="str_title_form_fecha">Fecha y hora:</string>
+    <string name="str_title_spinner_lugar">Lugar:</string>
+    <string name="str_title_spinner_estacion">Estación:</string>
+    <string name="str_title_spinner_tren">Tren:</string>
+    <string name="str_title_spinner_proceso">Proceso:</string>
+    <string name="str_title_spinner_novedad">Novedad:</string>
+    <string name="str_menu_form_guardar">Guardar</string>
+    <string name="str_title_alert_error_form">Formulario</string>
+    <string name="str_msj_alert_error_form">Existen campos pendientes por diligenciar.</string>
+    <string name="str_title_alert_location">Ubicación</string>
+    <string name="str_msj_alert_location">Su ubicación esta desactivada, por favor actívela para continuar con el diligenciamiento.</string>
+    <string name="str_config">Configuración</string>
+    <string name="str_cancel">Cancel</string>
+    <string name="str_title_alert_permiso">Permisos</string>
+    <string name="str_msj_alert_permiso">Debe otorgar los permisos para continuar con el diligenciamiento.</string>
+    <string name="str_msj_alert_error_guardando_formulario">Error guardando formulario.</string>
+    <string name="str_title_alert_formulario">Formulario</string>
+    <string name="str_msj_alert_formulario_guardado">Formulario guardado con éxito.</string>
+    <string name="str_title_evidencias">Evidencias</string>
+    <string name="str_title_evidencias_imagenes">Imágenes</string>
+    <string name="str_title_evidencias_videos">Videos</string>
+    <string name="str_title_evidencias_audios">Audios</string>
+    <string name="str_title_menu_imagen">Imágenes</string>
+    <string name="str_title_menu_video">Video</string>
+    <string name="str_title_menu_audio">Audio</string>
+    <string name="str_title_menu_camara">Cámara</string>
+    <string name="str_msj_loading_evidencias">Cargando evidencias...</string>
+    <string name="str_menu_patron">Ingresar patrón</string>
+    <string-array name="lugares_array">
+        <item>Escoja una opción</item>
+        <item>Estación</item>
+        <item>Tren</item>
+    </string-array>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="str_title_header_nav">Ciglesias</string>
+    <string name="str_msj_loading_sitios">Cargando sitios...</string>
+    <string name="str_title_alert_error_sitios">Lugares de inspección</string>
+    <string name="str_msj_alert_error_sitios">Error cargando lugares de inspección</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="str_title_visita">Visita de prueba</string>
+    <string name="str_msj_loading_db">Cargando base de datos...</string>
+</resources>

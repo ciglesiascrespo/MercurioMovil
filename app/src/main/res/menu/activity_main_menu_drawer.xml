@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_list_black_48dp"
+            android:title="Verificación" />
+        <item
+            android:id="@+id/id_menu_sitio"
+            android:icon="@drawable/ic_home_black_48dp"
+            android:title="Lugares de inspección" />
+
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_print_black_48dp"
+            android:title="Informes" />
+
+    </group>
+
+    <item android:title="Configuración general">
+        <menu>
+            <item
+                android:id="@+id/id_menu_importar"
+                android:icon="@drawable/ic_import_export_black_48dp"
+                android:title="Importar/Exportar" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_settings_black_48dp"
+                android:title="Configuracion" />
+        </menu>
+    </item>
+
+</menu>

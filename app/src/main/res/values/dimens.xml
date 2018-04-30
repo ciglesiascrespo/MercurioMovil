@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_top_edt_user">10dp</dimen>
+    <dimen name="margin_top_btn_login">25dp</dimen>
+    <dimen name="fragment_horizontal_margin">4dp</dimen>
+    <dimen name="text_size_no_form">25sp</dimen>
+    <dimen name="spacing">8dp</dimen>
+    <dimen name="size_circle">16dp</dimen>
+    <dimen name="margin_fab">16dp</dimen>
+    <dimen name="cardview_radius">4dp</dimen>
+    <dimen name="cardview_elevation">4dp</dimen>
+    <dimen name="margin_left_10dp">10dp</dimen>
+    <dimen name="text_size_tile_form">12sp</dimen>
+    <dimen name="text_size_tile_evidenias">18sp</dimen>
+    <dimen name="margin_left_15dp">15dp</dimen>
+    <dimen name="width_spinner">26dp</dimen>
+    <dimen name="padding_2dp">5dp</dimen>
+    <dimen name="text_size_form20sp">18sp</dimen>
+    <dimen name="height_logo_login">80dp</dimen>
+    <dimen name="margin_horizontal_linear">20dp</dimen>
+    <dimen name="margin_top_recyclerview">10dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="text_size_tile_visitas">25sp</dimen>
+</resources>
