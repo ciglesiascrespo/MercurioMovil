@@ -27,7 +27,7 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(UserDb.getCreateTable());
         db.execSQL(VisitaDb.getCreateTable());
         db.execSQL(FormularioDb.getCreateTable());
-        db.execSQL(ItemVisita.getCreateTable());
+        db.execSQL(ItemVisitaDb.getCreateTable());
 
         insertData(db);
     }

@@ -13,13 +13,14 @@
         android:layout_height="0dp"
         android:layout_weight="8"
         android:gravity="center"
-        android:text="@string/str_title_visita"
+        android:text="Visita"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/text_size_tile_visitas"
         android:textStyle="bold" />
 
     <FrameLayout
         android:layout_width="match_parent"
+        android:id="@+id/id_frame_container_visita"
         android:layout_height="0dp"
         android:layout_weight="80"></FrameLayout>
 
@@ -41,6 +42,7 @@
         <SeekBar
 
             android:layout_width="0dp"
+            android:id="@+id/id_seekbar_visita"
             android:layout_height="match_parent"
             android:layout_weight="60" />
 

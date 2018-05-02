@@ -59,10 +59,14 @@
     <string name="str_title_header_nav">Ciglesias</string>
     <string name="str_msj_loading_sitios">Cargando sitios...</string>
     <string name="str_title_alert_error_sitios">Lugares de inspección</string>
+    <string name="str_title_alert_error_items_visita">Items de la visita</string>
+
     <string name="str_msj_alert_error_sitios">Error cargando lugares de inspección</string>
+    <string name="str_msj_alert_error_items_visita">Error cargando items de la visita</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="str_title_visita">Visita de prueba</string>
     <string name="str_msj_loading_db">Cargando base de datos...</string>
+    <string name="str_msj_loading_items_visita">Cargando elemenntos de la visita...</string>
 </resources>

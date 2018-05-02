@@ -25,6 +25,8 @@ import java.util.List;
 
 
 public class SitioFragment extends Fragment implements FragmentRecyclerView {
+    public static final String EXTRA_NAME_VISITA = "name";
+    public static final String EXTRA_ID_VISITA = "idVisita";
     RecyclerView recyclerView;
     SitioPresenterImpl presenter;
     RecyclerAdapter adapter;

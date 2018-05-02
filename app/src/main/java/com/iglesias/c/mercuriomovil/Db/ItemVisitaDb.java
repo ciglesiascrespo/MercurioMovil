@@ -4,7 +4,7 @@ package com.iglesias.c.mercuriomovil.Db;
  * Created by Ciglesias on 22/04/2018.
  */
 
-public class ItemVisita {
+public class ItemVisitaDb {
     public static final String TABLE = "items_visita";
 
     public static final String KEY_ID = "id_item_visita";

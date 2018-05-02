@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.iglesias.c.mercuriomovil.Activity.FormularioVisitaActivity;
+import com.iglesias.c.mercuriomovil.Fragment.SitioFragment;
 import com.iglesias.c.mercuriomovil.Pojo.SitioItem;
 import com.iglesias.c.mercuriomovil.R;
 
@@ -53,7 +54,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MovieV
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, FormularioVisitaActivity.class);
-                i.putExtra("name", itemList.getNombre());
+                i.putExtra(SitioFragment.EXTRA_NAME_VISITA, itemList.getNombre());
+                i.putExtra(SitioFragment.EXTRA_ID_VISITA, itemList.getId());
                 context.startActivity(i);
             }
         });
