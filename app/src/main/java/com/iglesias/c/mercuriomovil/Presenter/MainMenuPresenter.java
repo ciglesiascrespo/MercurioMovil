@@ -5,4 +5,8 @@ package com.iglesias.c.mercuriomovil.Presenter;
  */
 
 public interface MainMenuPresenter {
+    void setMaxLoading(int i);
+    void setProgress(int i);
+    void onCompleteImporData();
+    void showDialogErrorImport();
 }

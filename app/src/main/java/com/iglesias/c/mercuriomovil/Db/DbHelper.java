@@ -51,15 +51,16 @@ public class DbHelper extends SQLiteOpenHelper {
 
         cvc.put(VisitaDb.KEY_ID, 16);
         cvc.put(VisitaDb.KEY_ID_FORMULARIO, 25);
+        db.insert(VisitaDb.TABLE, null, cvc);
 
         cvc.clear();
 
         cvc.put(FormularioDb.KEY_ID, 25);
         cvc.put(FormularioDb.KEY_NOMBRE, "Pae secretaria gobernación ");
-        cvc.put(FormularioDb.KEY_ACTIVO,"S");
-        cvc.put(FormularioDb.KEY_FECHA_HORA,"2018-04-22 18:10:25");
-        cvc.put(FormularioDb.KEY_ID_TIPO_FORMULARIO,2);
-
+        cvc.put(FormularioDb.KEY_ACTIVO, "S");
+        cvc.put(FormularioDb.KEY_FECHA_HORA, "2018-04-22 18:10:25");
+        cvc.put(FormularioDb.KEY_ID_TIPO_FORMULARIO, 2);
+        db.insert(FormularioDb.TABLE, null, cvc);
 
     }
 

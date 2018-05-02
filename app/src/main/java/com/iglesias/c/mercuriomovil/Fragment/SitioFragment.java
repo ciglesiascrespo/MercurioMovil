@@ -133,4 +133,11 @@ public class SitioFragment extends Fragment implements FragmentRecyclerView {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
+    @Override
+    public Context getContextActivity() {
+        return getContext();
+    }
+
+
 }

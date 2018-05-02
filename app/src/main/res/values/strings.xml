@@ -31,8 +31,8 @@
     <string name="str_config">Configuración</string>
     <string name="str_cancel">Cancel</string>
     <string name="str_title_alert_permiso">Permisos</string>
-    <string name="str_msj_alert_permiso">Debe otorgar los permisos para continuar con el diligenciamiento.</string>
-    <string name="str_msj_alert_error_guardando_formulario">Error guardando formulario.</string>
+    <string name="str_msj_alert_permiso">Es necesario acceder a la memoria del dispositivo para esta opción.</string>
+    <string name="str_msj_alert_error_guardando_formulario">Error importando registros en la base de datos.</string>
     <string name="str_title_alert_formulario">Formulario</string>
     <string name="str_msj_alert_formulario_guardado">Formulario guardado con éxito.</string>
     <string name="str_title_evidencias">Evidencias</string>

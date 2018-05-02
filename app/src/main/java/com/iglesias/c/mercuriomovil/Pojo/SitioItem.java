@@ -16,6 +16,14 @@ public class SitioItem {
         this.id = id;
     }
 
+    public SitioItem(String nombre, int id) {
+        this.nombre = nombre;
+        this.codigo = "No registra";
+        this.telefono = "No registra";
+        this.direccion = "No registra";
+        this.id = id;
+    }
+
     public String getNombre() {
         return nombre;
     }

@@ -16,7 +16,7 @@ public class SitioPresenterImpl implements SitioPresenter {
 
     public SitioPresenterImpl(FragmentRecyclerView view) {
         this.view = view;
-        iterator = new SitioIterator(this);
+        iterator = new SitioIterator(this, view.getContextActivity());
     }
 
     public void getListItems() {

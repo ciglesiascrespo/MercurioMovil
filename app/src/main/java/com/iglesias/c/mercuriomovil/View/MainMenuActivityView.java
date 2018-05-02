@@ -10,6 +10,11 @@ public interface MainMenuActivityView {
     void showDialogFile();
     void showFragment(int id);
     void showLoading(String msj);
+    void setProgressLoading(int i);
+    void setMaxProgress(int i);
     void hideLoading();
+    void checkPermission();
     Context getContext();
+    void closeDrawer();
+    void showDialogErrorImport();
 }

@@ -1,13 +1,19 @@
 package com.iglesias.c.mercuriomovil.Activity;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -31,6 +37,7 @@ public class MainMenuActivity extends AppCompatActivity
     private final int REQUEST_CODE_ARCHIVO_BD = 1;
     MainMenuActivityPresenterImpl presenter;
     private ProgressDialog loading;
+    public static final int MY_PERMISSIONS_REQUEST_EXTERNAL_STORAGE = 99;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +50,7 @@ public class MainMenuActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -53,7 +60,21 @@ public class MainMenuActivity extends AppCompatActivity
 
     private void setupLoading() {
         loading = new ProgressDialog(this);
+        loading.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
         loading.setCancelable(true);
+    }
+
+    @Override
+    public void checkPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    MY_PERMISSIONS_REQUEST_EXTERNAL_STORAGE);
+        } else {
+            showDialogFile();
+        }
     }
 
     private void setupViews() {
@@ -106,7 +127,12 @@ public class MainMenuActivity extends AppCompatActivity
             ft.replace(R.id.id_frame_container, fragment);
             ft.commit();
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+    }
+
+    @Override
+    public void closeDrawer() {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
 
@@ -116,6 +142,16 @@ public class MainMenuActivity extends AppCompatActivity
         if (loading != null && !loading.isShowing()) {
             loading.show();
         }
+    }
+
+    @Override
+    public void setProgressLoading(int i) {
+        loading.setProgress(i);
+    }
+
+    @Override
+    public void setMaxProgress(int i) {
+        loading.setMax(i);
     }
 
     @Override
@@ -142,5 +178,52 @@ public class MainMenuActivity extends AppCompatActivity
             }
 
         }
+    }
+
+    private void showDialogPermisoDenegado() {
+        final AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle(getContext().getResources().getString(R.string.str_title_alert_permiso))
+                .setMessage(getResources().getString(R.string.str_msj_alert_permiso))
+                .setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                        finish();
+                    }
+                });
+        dialog.show();
+    }
+
+    @Override
+    public void showDialogErrorImport() {
+        final AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle(getContext().getResources().getString(R.string.str_title_alert_error))
+                .setMessage(getResources().getString(R.string.str_msj_alert_error_guardando_formulario))
+                .setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+
+                    }
+                });
+        dialog.show();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_EXTERNAL_STORAGE: {
+
+                if (grantResults.length > 0
+                        && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    showDialogFile();
+                } else {
+
+                    showDialogPermisoDenegado();
+                }
+                break;
+
+            }
+
+        }
+
     }
 }

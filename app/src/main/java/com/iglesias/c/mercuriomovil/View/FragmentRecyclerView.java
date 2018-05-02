@@ -1,6 +1,8 @@
 package com.iglesias.c.mercuriomovil.View;
 
 
+import android.content.Context;
+
 import com.iglesias.c.mercuriomovil.Pojo.SitioItem;
 
 import java.util.List;
@@ -18,4 +20,6 @@ public interface FragmentRecyclerView {
     void dismissLoading();
 
     void showErrorDialog();
+
+    Context getContextActivity();
 }

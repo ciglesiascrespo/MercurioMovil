@@ -4,6 +4,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import com.iglesias.c.mercuriomovil.Pojo.SitioItem;
+
+import java.util.ArrayList;
+
 /**
  * Created by Ciglesias on 18/02/2018.
  */
@@ -54,10 +58,58 @@ public class DbHandler {
             }
             Log.e(TAG, "Error validando usuario: " + e.getMessage());
             e.printStackTrace();
+        } finally {
+            if (c != null && !c.isClosed()) {
+                c.close();
+            }
         }
 
 
         return result;
+    }
+
+    public ArrayList<SitioItem> getListSitioItems() {
+        ArrayList<SitioItem> list = new ArrayList<>();
+        String sql = "SELECT v.id_visita, f.id_formulario,f.nombre " +
+                "FROM visitas as v " +
+                "inner join formularios  as f on(v.id_formulario = f.id_formulario);";
+        Cursor c = null;
+        try {
+
+            c = dbHelper.execSql(sql);
+
+            if (c.moveToFirst()) {
+                do {
+
+                    int id = 0;
+                    String nombre = "";
+
+                    if (!c.isNull(c.getColumnIndex(VisitaDb.KEY_ID))) {
+                        id = c.getInt(c.getColumnIndex(VisitaDb.KEY_ID));
+                    }
+
+                    if (!c.isNull(c.getColumnIndex(FormularioDb.KEY_NOMBRE))) {
+                        nombre = c.getString(c.getColumnIndex(FormularioDb.KEY_NOMBRE));
+                    }
+
+                    SitioItem item = new SitioItem(nombre, id);
+                    list.add(item);
+
+                } while (c.moveToNext());
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (c != null && !c.isClosed()) {
+                c.close();
+            }
+
+        } finally {
+            if (c != null && !c.isClosed()) {
+                c.close();
+            }
+        }
+        return list;
     }
 
     public String getPatterUser(int id) {

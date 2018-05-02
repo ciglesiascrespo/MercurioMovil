@@ -1,11 +1,16 @@
 package com.iglesias.c.mercuriomovil.Iterator;
 
+import android.content.Context;
+import android.util.Log;
+
+import com.iglesias.c.mercuriomovil.Db.DbHandler;
 import com.iglesias.c.mercuriomovil.Pojo.SitioItem;
 import com.iglesias.c.mercuriomovil.Presenter.SitioPresenterImpl;
 
 import java.util.ArrayList;
 
-import rx.Observer;
+import rx.Observable;
+import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -15,24 +20,44 @@ import rx.schedulers.Schedulers;
 
 public class SitioIterator {
     SitioPresenterImpl presenter;
+    DbHandler dbHandler;
 
-    public SitioIterator(SitioPresenterImpl presenter) {
+    public SitioIterator(SitioPresenterImpl presenter, Context context) {
         this.presenter = presenter;
+        this.dbHandler = DbHandler.getInstance(context);
     }
 
-    public void getListItem(){
-        ArrayList<SitioItem> list = new ArrayList<>();
+    public void getListItem() {
+        Log.e(getClass().getName(), "Cargando sitios");
+        Observable.create(new Observable.OnSubscribe<ArrayList<SitioItem>>() {
+            @Override
+            public void call(Subscriber<? super ArrayList<SitioItem>> subscriber) {
+                subscriber.onNext(dbHandler.getListSitioItems());
 
-        list.add(new SitioItem("Nombre sitio 1","123456","123456789","cra 8 # 4 - 12 (Bucaramanga - santander)",1));
-        list.add(new SitioItem("Nombre sitio 2","4654321","123456789","cra 8 # 4 - 12 (San gil - santander)",1));
-        list.add(new SitioItem("Nombre sitio 3","321231654","123456789","cra 8 # 4 - 12 (Fundacion - Magdalena)",1));
-        list.add(new SitioItem("Nombre sitio 4","321354897","123456789","cra 8 # 4 - 12 (Reten - Magdalena)",1));
-        list.add(new SitioItem("Nombre sitio 5","321654987","123456789","cra 8 # 4 - 12 (Aracataca - Magdalena)",1));
-        list.add(new SitioItem("Nombre sitio 6","6548213","123456789","cra 8 # 4 - 12 (Santa marta - Magdalena)",1));
-        list.add(new SitioItem("Nombre sitio 7","254894154","123456789","cra 8 # 4 - 12 (Giron - santander)",1));
-        list.add(new SitioItem("Nombre sitio 8","2579546523","123456789","cra 8 # 4 - 12 (Florodablanca - santander)",1));
+                subscriber.onCompleted();
+            }
+        }).observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io()).subscribe(new Subscriber<ArrayList<SitioItem>>() {
+            @Override
+            public void onCompleted() {
+                presenter.onCompleteListSitios();
+            }
 
-        presenter.showListSitios(list);
-        presenter.onCompleteListSitios();
+            @Override
+            public void onError(Throwable e) {
+                presenter.onErrorLoadingSitios();
+                Log.e(getClass().getName(), "Error cargando sitios." + e.getMessage());
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onNext(ArrayList<SitioItem> list) {
+                Log.e(getClass().getName(),"mostrando sitios: " + list.size());
+                presenter.showListSitios(list);
+
+            }
+        });
+
     }
 }
