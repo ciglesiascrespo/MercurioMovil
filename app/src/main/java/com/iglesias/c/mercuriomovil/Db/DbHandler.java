@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import com.iglesias.c.mercuriomovil.Pojo.ItemVisita;
 import com.iglesias.c.mercuriomovil.Pojo.SitioItem;
 
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ public class DbHandler {
     }
 
     public Cursor execSql(String sql) {
+        Log.e(TAG,sql);
         return dbHelper.execSql(sql);
     }
 
@@ -93,6 +95,70 @@ public class DbHandler {
                     }
 
                     SitioItem item = new SitioItem(nombre, id);
+                    list.add(item);
+
+                } while (c.moveToNext());
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (c != null && !c.isClosed()) {
+                c.close();
+            }
+
+        } finally {
+            if (c != null && !c.isClosed()) {
+                c.close();
+            }
+        }
+        return list;
+    }
+
+    public ArrayList<ItemVisita> getListitemsVisita(int idVisita) {
+        ArrayList<ItemVisita> list = new ArrayList<>();
+
+        String sql = "SELECT  id_item_visita,  id_visita, descripcion,  comando_sql,  campo_valor,  campo_visualizacion, " +
+                " depende_de FROM items_visita;";// where id_visita = " + idVisita + " order by orden;";
+        Cursor c = null;
+        try {
+
+            c = dbHelper.execSql(sql);
+
+            if (c.moveToFirst()) {
+                do {
+
+                    int idItemVisita = -1;
+                    String descripcion = "";
+                    String comandoSql = "";
+                    int campoValor = -1;
+                    String campoVisualizacion = "";
+                    String dependeDe = "";
+
+                    if (!c.isNull(c.getColumnIndex(ItemVisitaDb.KEY_ID))) {
+                        idItemVisita = c.getInt(c.getColumnIndex(ItemVisitaDb.KEY_ID));
+                    }
+
+                    if (!c.isNull(c.getColumnIndex(ItemVisitaDb.KEY_CAMPO_VALOR))) {
+                        campoValor = c.getInt(c.getColumnIndex(ItemVisitaDb.KEY_CAMPO_VALOR));
+                    }
+
+                    if (!c.isNull(c.getColumnIndex(ItemVisitaDb.KEY_DESCRIPCION))) {
+                        descripcion = c.getString(c.getColumnIndex(ItemVisitaDb.KEY_DESCRIPCION));
+                    }
+
+                    if (!c.isNull(c.getColumnIndex(ItemVisitaDb.KEY_COMANDO_SQL))) {
+                        comandoSql = c.getString(c.getColumnIndex(ItemVisitaDb.KEY_COMANDO_SQL));
+                    }
+
+                    if (!c.isNull(c.getColumnIndex(ItemVisitaDb.KEY_CAMPO_VISUALIZACION))) {
+                        campoVisualizacion = c.getString(c.getColumnIndex(ItemVisitaDb.KEY_CAMPO_VISUALIZACION));
+                    }
+
+                    if (!c.isNull(c.getColumnIndex(ItemVisitaDb.KEY_DEPENDE_DE))) {
+                        dependeDe = c.getString(c.getColumnIndex(ItemVisitaDb.KEY_DEPENDE_DE));
+                    }
+
+                    ItemVisita item = new ItemVisita(idItemVisita, idVisita, descripcion, comandoSql, campoValor, campoVisualizacion, dependeDe);
                     list.add(item);
 
                 } while (c.moveToNext());

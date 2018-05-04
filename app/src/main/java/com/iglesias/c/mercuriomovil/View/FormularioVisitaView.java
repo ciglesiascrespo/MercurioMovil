@@ -13,6 +13,7 @@ public interface FormularioVisitaView {
 
     Context getContextApp();
 
+    void setMaxSeekBar(int i);
 
     void showDialogError(String msj);
 }

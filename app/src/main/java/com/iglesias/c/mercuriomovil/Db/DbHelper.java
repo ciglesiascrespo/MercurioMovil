@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.iglesias.c.mercuriomovil.Pojo.ItemVisita;
+
 /**
  * Created by Ciglesias on 18/02/2018.
  */
@@ -62,6 +64,14 @@ public class DbHelper extends SQLiteOpenHelper {
         cvc.put(FormularioDb.KEY_ID_TIPO_FORMULARIO, 2);
         db.insert(FormularioDb.TABLE, null, cvc);
 
+        cvc.clear();
+
+        cvc.put(ItemVisitaDb.KEY_ID, 35);
+        cvc.put(ItemVisitaDb.KEY_ID_VISITA, 16);
+        cvc.put(ItemVisitaDb.KEY_ORDEN, 1);
+
+        db.insert(ItemVisitaDb.TABLE,null,cvc);
+
     }
 
     @Override
@@ -91,14 +101,10 @@ public class DbHelper extends SQLiteOpenHelper {
     public Cursor execSql(String query) {
         Cursor c = null;
         SQLiteDatabase db = this.getWritableDatabase();
-        try {
-            c = db.rawQuery(query, null);
-            // db.close();
-        } catch (Exception e) {
-            //if (db.isOpen()) db.close();
-            Log.e(TAG, "Error ejecutando sql: " + query + " " + e.getMessage());
-            e.printStackTrace();
-        }
+
+        c = db.rawQuery(query, null);
+        // db.close();
+
 
         return c;
     }

@@ -19,10 +19,18 @@
         android:textStyle="bold" />
 
     <FrameLayout
-        android:layout_width="match_parent"
         android:id="@+id/id_frame_container_visita"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="80"></FrameLayout>
+        android:layout_weight="75"></FrameLayout>
+
+    <TextView
+        android:id="@+id/id_txt_progress_item_visita"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:gravity="center_horizontal"
+        android:text="2/15" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,24 +42,24 @@
         <ImageButton
             android:id="@+id/id_btn_back_visita"
             android:layout_width="0dp"
-            android:background="@drawable/selectro_btn"
-            android:src="@drawable/ic_i"
             android:layout_height="match_parent"
-            android:layout_weight="20" />
+            android:layout_weight="20"
+            android:background="@drawable/selectro_btn"
+            android:src="@drawable/ic_i" />
 
         <SeekBar
-
-            android:layout_width="0dp"
             android:id="@+id/id_seekbar_visita"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="60" />
+            android:layout_weight="60"
+            android:progress="1" />
 
         <ImageButton
             android:id="@+id/id_btn_forward_visita"
             android:layout_width="0dp"
-            android:background="@drawable/selectro_btn"
-            android:src="@drawable/ic_d"
             android:layout_height="match_parent"
-            android:layout_weight="20" />
+            android:layout_weight="20"
+            android:background="@drawable/selectro_btn"
+            android:src="@drawable/ic_d" />
     </LinearLayout>
 </LinearLayout>
